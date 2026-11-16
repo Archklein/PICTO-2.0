@@ -184,12 +184,12 @@ html {
       }
     }
 
-    a:hover {
+    .menu_link_a:hover {
       background-color: var(--accent-hover-lo);
       transform: translateY(-5px);
       box-shadow: 1px 3px 0 var(--text-muted);
     }
-    a:active {
+    .menu_link_a:active {
       background-color: var(--accent-hover-lo);
       transform: translateY(0px);
       box-shadow: 0 0 0 transparent;

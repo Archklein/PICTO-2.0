@@ -94,8 +94,16 @@ html {
   top: 0;
   left: 0;
   background: transparent;
-  backdrop-filter: blur(10px);
   padding: var(--spacing-small);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
 
   #menu_toggle {
     display: none;
@@ -139,9 +147,9 @@ html {
   .menu_list {
     z-index: 2;
     width: 70%;
-    height: 100dvh;
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0%;
     background-color: var(--card-bg);
     padding: var(--spacing-small);

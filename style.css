@@ -85,6 +85,7 @@ html {
 }
 
 .navtop {
+  z-index: 999;
   display: flex;
   width: 100%;
   align-items: center;
@@ -100,6 +101,27 @@ html {
     display: none;
   }
 
+  .menu_icon {
+    padding: var(--spacing-small);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lucide-text-align-start {
+    transition: all 0.25s var(--ease-apple);
+    transform: scale(100%);
+    color: var(--text-muted);
+  }
+  .lucide-text-align-start:hover {
+    transform: scale(105%);
+    color: var(--text-dark);
+  }
+  .lucide-text-align-start:active {
+    transform: scale(100%);
+    color: var(--text-muted);
+  }
+
   .logo {
     width: 20rem;
     height: auto;
@@ -107,6 +129,7 @@ html {
     align-items: center;
     justify-content: center;
     margin-left: var(--spacing-small);
+    margin-right: auto;
     img {
       width: 100%;
       height: 100%;
@@ -114,6 +137,7 @@ html {
   }
 
   .menu_list {
+    z-index: 2;
     width: 70%;
     height: 100dvh;
     position: fixed;
@@ -127,6 +151,9 @@ html {
     visibility: hidden;
     transition: all 0.63s var(--ease-apple);
     transform: translateX(-100%);
+    border-right: 2px solid var(--outline);
+    border-top-right-radius: var(--spacing-medium);
+    border-bottom-right-radius: var(--spacing-medium);
 
     .menu_exit {
       display: flex;
@@ -148,9 +175,25 @@ html {
 
         svg {
           text-align: center;
+          color: var(--text-muted);
         }
       }
     }
+  }
+
+  .overlay {
+    z-index: 1;
+    inset: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(143, 141, 168, 0.146);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.35s var(--ease-apple);
   }
 
   .menu_links {
@@ -208,8 +251,8 @@ html {
       place-items: center;
 
       a {
-        width: 4.8rem;
-        height: 4.8rem;
+        width: 5.1rem;
+        height: 5.1rem;
         overflow: hidden;
         img {
           width: 100%;
@@ -238,9 +281,33 @@ html {
     }
   }
 
+  .search_section {
+    a {
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: var(--spacing-small);
+      border-radius: var(--spacing-small);
+      transition: all 0.35s var(--ease-apple);
+
+      svg {
+        color: var(--text-muted);
+      }
+    }
+  }
+
   #menu_toggle:checked ~ .menu_list {
     transform: translateX(0%);
     pointer-events: auto;
     visibility: visible;
+  }
+
+  #menu_toggle:checked ~ .overlay {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
   }
 }

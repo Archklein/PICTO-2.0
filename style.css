@@ -217,7 +217,7 @@ html {
       color: var(--text-muted);
       transition: all 0.25s var(--ease-apple);
       border-radius: var(--spacing-small);
-      transform: translateY(0);
+      transform: scale(100%);
 
       .menu_link_icon {
         height: 1em;
@@ -229,13 +229,14 @@ html {
 
     .menu_link_a:hover {
       background-color: var(--accent-hover-lo);
-      transform: translateY(-5px);
-      box-shadow: 1px 3px 0 var(--text-muted);
+      transform: scale(103.4%);
+      color: var(--text-dark);
+      font-weight: 700;
     }
     .menu_link_a:active {
       background-color: var(--accent-hover-lo);
       transform: translateY(0px);
-      box-shadow: 0 0 0 transparent;
+      color: var(--color-accent);
     }
   }
 
@@ -273,10 +274,23 @@ html {
         justify-content: center;
         transition: all 0.25s var(--ease-apple);
         color: var(--text-muted);
+        background-color: transparent;
+        border-radius: 50%;
+        transform: scale(90%);
 
         svg {
           margin-left: 2px;
+          transition: all 0.25s var(--ease-apple);
         }
+
+        svg:hover {
+          color: var(--color-accent-hover);
+        }
+      }
+
+      a:hover {
+        background-color: var(--accent-hover-lo);
+        transform: scale(104%);
       }
     }
   }
@@ -297,6 +311,19 @@ html {
         color: var(--text-muted);
       }
     }
+  }
+
+  .navtop_icons_container {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-tiny) var(--spacing-small) var(--spacing-small)
+      var(--spacing-small);
+    display: flex;
+    align-items: center;
   }
 
   #menu_toggle:checked ~ .menu_list {

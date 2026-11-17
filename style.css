@@ -145,7 +145,7 @@ html {
   }
 
   .menu_list {
-    z-index: 2;
+    z-index: 4;
     width: 70%;
     position: fixed;
     top: 0;
@@ -200,7 +200,7 @@ html {
   }
 
   .overlay {
-    z-index: 1;
+    z-index: 3;
     inset: 0;
     position: fixed;
     top: 0;
@@ -295,7 +295,6 @@ html {
         color: var(--text-muted);
         background-color: transparent;
         border-radius: 50%;
-
         svg {
           margin-left: 2px;
         }
@@ -308,7 +307,7 @@ html {
   }
 
   .search_section {
-    button {
+    #search_button {
       text-align: center;
       display: inline-flex;
       align-items: center;
@@ -325,7 +324,16 @@ html {
       svg {
         color: var(--text-muted);
         margin-bottom: 1px;
+        transition: all 0.35s var(--ease-apple);
+        transform: scale(100%);
       }
+    }
+
+    #search_button:hover {
+      background-color: var(--accent-hover-lo);
+    }
+    #search_button:active {
+      transform: scale(103%);
     }
   }
 
@@ -352,5 +360,140 @@ html {
     pointer-events: auto;
     visibility: visible;
     opacity: 1;
+  }
+}
+
+.modal_overlay {
+  padding: var(--spacing-small);
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s var(--ease-apple);
+  pointer-events: none;
+  transform: translateY(-100%);
+  border-bottom-left-radius: var(--spacing-medium);
+  border-bottom-right-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-md);
+
+  .modal_card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    max-width: 700px;
+    margin-top: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .exit_div {
+    width: max-content;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-small);
+    position: absolute;
+    top: 120%;
+    background-color: var(--card-bg);
+    padding: var(--spacing-tiny);
+    border-radius: 50%;
+    transform: translateY(-200%);
+
+    #search_exit {
+      transition: all 0.35s var(--ease-apple);
+      background-color: transparent;
+      border-radius: 50%;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-tiny);
+      box-shadow: var(--shadow-md);
+      transform: translateY(0);
+
+      .lucide-arrow-up {
+        color: var(--text-muted);
+        transition: all 0.55s var(--ease-apple);
+      }
+    }
+
+    #search_exit:hover {
+      .lucide-arrow-up {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .search_modal_div {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .lucide-search2 {
+      position: absolute;
+      left: var(--spacing-small);
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--text-muted);
+    }
+
+    #search_input {
+      display: block;
+      padding: 0.5rem 0.5rem 0.5rem 3.7rem;
+      width: 100%;
+      outline: none;
+      border: 0;
+      background-color: var(--card-bg);
+    }
+
+    .search_submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 14px 0.5rem 14px;
+      background-color: var(--color-accent);
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.5;
+      outline: none;
+      border: 0;
+      border-radius: var(--spacing-tiny);
+      transition: all 0.25s var(--ease-apple);
+      transform: translateY(0);
+    }
+
+    .search_submit:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-1.6px);
+    }
+
+    .search_submit:active {
+      background-color: var(--accent-active-lo);
+      color: #0f172a;
+      transform: translateY(0);
+    }
+  }
+}
+
+.is_open {
+  pointer-events: auto;
+  transform: translateY(0%);
+
+  .exit_div {
+    transform: translateY(0%);
   }
 }

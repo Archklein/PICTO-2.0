@@ -239,7 +239,7 @@
       </div>
 
       <div class="search_section">
-        <button type="button">
+        <button id="search_button" type="button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -257,6 +257,55 @@
           </svg>
         </button>
       </div>
+
+      <div id="search_modal" class="modal_overlay">
+        <div class="modal_card">
+          <div class="search_modal_div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-search2 preview-icon"
+            >
+              <path d="m21 21-4.34-4.34" />
+              <circle cx="11" cy="11" r="8" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search products..."
+              id="search_input"
+            />
+            <button class="search_submit" type="submit">Search</button>
+          </div>
+        </div>
+        <div class="exit_div">
+          <button type="button" id="search_exit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-arrow-up preview-icon"
+            >
+              <path d="m5 12 7-7 7 7" />
+              <path d="M12 19V5" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </nav>
+
+    <script src="index.js"></script>
   </body>
 </html>

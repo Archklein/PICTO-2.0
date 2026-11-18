@@ -462,6 +462,8 @@ html {
       transform: translateY(-50%);
       transition: all 0.25s var(--ease-apple);
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
 
       .search_button {
         display: flex;
@@ -472,6 +474,8 @@ html {
         border: 0;
         background-color: transparent;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
 
         svg {
           color: var(--text-light);

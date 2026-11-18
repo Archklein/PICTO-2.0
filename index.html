@@ -58,7 +58,7 @@
         </div>
 
         <div class="menu_links">
-          <a class="menu_link_a" href="#">
+          <a class="menu_link_a specific_home" href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -257,54 +257,34 @@
           </svg>
         </button>
       </div>
+    </nav>
 
-      <div id="search_modal" class="modal_overlay">
-        <div class="modal_card">
-          <div class="search_modal_div">
+    <div id="search__overlay" class="search_overlay"></div>
+
+    <div id="searchbar__section" class="seachbar_section">
+      <div class="searchbar_div">
+        <input type="text" name="" placeholder="Search..." id="searchbar" />
+        <div class="search_icon2">
+          <button type="button" class="search_button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="17"
+              height="17"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-search2 preview-icon"
+              class="lucide lucide-search preview-icon"
             >
               <path d="m21 21-4.34-4.34" />
               <circle cx="11" cy="11" r="8" />
             </svg>
-            <input
-              type="text"
-              placeholder="Search products..."
-              id="search_input"
-            />
-            <button class="search_submit" type="submit">Search</button>
-          </div>
-        </div>
-        <div class="exit_div">
-          <button type="button" id="search_exit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-arrow-up preview-icon"
-            >
-              <path d="m5 12 7-7 7 7" />
-              <path d="M12 19V5" />
-            </svg>
           </button>
         </div>
       </div>
-    </nav>
+    </div>
 
     <script src="index.js"></script>
   </body>

@@ -1,10 +1,12 @@
-const searchOpen = document.querySelector("#search_button");
-const searchModal = document.querySelector("#search_modal");
-const searchExit = document.querySelector("#search_exit");
+const openBtn = document.querySelector("#search_button");
+const searchbarSection = document.querySelector("#searchbar__section");
+const closebtn = document.querySelector("#search__overlay");
 
-searchOpen.addEventListener("click", () => {
-  searchModal.classList.add("is_open");
+openBtn.addEventListener("click", () => {
+  searchbarSection.classList.add("searchbar_section_isActive");
+  closebtn.classList.add("search_overlay_isActive");
 });
-searchExit.addEventListener("click", () => {
-  searchModal.classList.remove("is_open");
+closebtn.addEventListener("click", () => {
+  searchbarSection.classList.remove("searchbar_section_isActive");
+  closebtn.classList.remove("search_overlay_isActive");
 });

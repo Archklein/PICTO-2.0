@@ -1,28 +1,28 @@
-const openBtn = document.querySelector("#search_button");
-const searchbarSection = document.querySelector("#searchbar__section");
-const closebtn = document.querySelector("#search__overlay");
-const searchInput = document.querySelector("#searchbar");
-const sellOpenBtn = document.querySelector("#sell");
-const sellSection = document.querySelector("#sell__section");
-const sellClosebtn = document.querySelector("#sell__exit");
+// const cameraInput = document.querySelector("#cameraInput");
+// const galleryInput = document.querySelector("#galleryInput");
+// const previewImg = document.querySelector("#previewImg");
 
-openBtn.addEventListener("click", () => {
-  searchbarSection.classList.add("searchbar_section_isActive");
-  closebtn.classList.add("search_overlay_isActive");
-  searchInput.focus();
-});
-closebtn.addEventListener("click", () => {
-  searchbarSection.classList.remove("searchbar_section_isActive");
-  closebtn.classList.remove("search_overlay_isActive");
-});
+// function showSelectedPhoto(event) {
+//   const file = event.target.files[0]; // first file chosen
+//   if (!file) return;
 
-sellOpenBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  sellSection.classList.add("sell_section_isActive");
-  const menuToggle = document.querySelector("#menu_toggle");
-  menuToggle.checked = false;
-});
+//   const imageUrl = URL.createObjectURL(file);
+//   previewImg.src = imageUrl;
+//   previewImg.hidden = false;
+// }
 
-sellClosebtn.addEventListener("click", () => {
-  sellSection.classList.remove("sell_section_isActive");
+// cameraInput.addEventListener("change", showSelectedPhoto);
+// galleryInput.addEventListener("change", showSelectedPhoto);
+
+const menuOpen = document.querySelector("#menu__toggle__btn");
+const myMenu = document.querySelector("#menu__list");
+const menuOverlay = document.querySelector("#overlay_id");
+
+menuOpen.addEventListener("click", () => {
+  myMenu.classList.add("menu_list_isActive");
+  menuOverlay.classList.add("overlay_isActive");
+});
+menuOverlay.addEventListener("click", () => {
+  myMenu.classList.remove("menu_list_isActive");
+  menuOverlay.classList.remove("overlay_isActive");
 });

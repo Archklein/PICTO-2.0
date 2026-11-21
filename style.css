@@ -77,7 +77,8 @@ a:active {
 body {
   font-size: 1.6rem;
   background-color: var(--main-bg);
-  animation: pageSlideIn 1s var(--ease-apple);
+  animation: pageSlideIn 0.2s var(--ease-apple);
+  padding-bottom: 80px;
 }
 
 @keyframes pageSlideIn {
@@ -90,6 +91,20 @@ body {
     transform: translateY(0);
   }
 }
+
+/* @media (max-width: 360px) {
+  .navbottom .inner_container .navbot_link {
+    padding: var(--spacing-small);
+
+    span {
+      display: none;
+    }
+
+    svg {
+      margin-right: 0;
+    }
+  }
+} */
 
 html {
   scroll-behavior: smooth;
@@ -160,12 +175,14 @@ html {
   box-shadow: var(--shadow-md);
 
   .menu_exit {
-    padding: 1rem 0.8rem 1rem 0.8rem;
+    padding: var(--spacing-small);
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: auto;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-medium);
+    border-bottom: 0.5px solid var(--outline);
+    box-shadow: var(--shadow-md);
 
     .exit_div {
       width: max-content;
@@ -197,16 +214,12 @@ html {
         background-color: var(--accent-hover-lo);
         transform: translateX(-2px);
       }
-      button:active {
-        background-color: var(--accent-active-lo);
-        transform: translateX(-1px);
-      }
     }
     .menu_logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: auto;
+      width: 20rem;
       height: auto;
 
       img {
@@ -214,6 +227,51 @@ html {
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+  .menu_links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: auto;
+
+    button {
+      width: 95%;
+      padding: var(--spacing-small) var(--spacing-small) var(--spacing-small)
+        var(--spacing-medium);
+      outline: none;
+      line-height: 2;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: var(--text-muted);
+      font-size: var(--p2);
+      letter-spacing: var(--tracking-p2);
+      margin-bottom: var(--spacing-small);
+      border: 0;
+      background-color: transparent;
+      transition: all 0.35s var(--ease-apple);
+      border-radius: var(--spacing-tiny);
+
+      svg {
+        height: 20px;
+        width: 20px;
+        margin-right: var(--spacing-tiny);
+      }
+    }
+
+    button:hover {
+      background-color: var(--accent-hover-lo);
+    }
+    button:active {
+      background-color: var(--accent-active-lo);
+    }
+    button:focus {
+      background-color: var(--accent-focus-lo);
     }
   }
 }
@@ -255,5 +313,78 @@ html {
   img {
     width: 100%;
     height: 100%;
+  }
+}
+
+.navbottom {
+  position: fixed;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  left: 16px;
+  right: 16px;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .inner_container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .navbot_links {
+      width: auto;
+      padding: var(--spacing-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      background-color: var(--card-bg);
+      border-radius: 999px;
+      box-shadow:
+        var(--shadow-md),
+        inset 2px 3px 5px rgba(0, 0, 0, 0.05);
+
+      .navbot_btn {
+        border-radius: 999px;
+        flex: 1;
+        display: inline-flex;
+        flex-direction: column;
+        padding: var(--spacing-tiny);
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: var(--tracking-p2);
+        line-height: var(--leading-p);
+        transition: all 0.35s var(--ease-apple);
+        background-color: transparent;
+        border: 0;
+        font-size: 1.2rem;
+      }
+
+      .home_navbot {
+        background-color: var(--accent-active-lo);
+      }
+    }
+  }
+
+  .navbot_sell {
+    height: 58px;
+    width: 58px;
+    border-radius: 999px;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    margin-left: var(--spacing-tiny);
+    box-shadow:
+      var(--shadow-md),
+      inset 2px 3px 5px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-bg);
   }
 }

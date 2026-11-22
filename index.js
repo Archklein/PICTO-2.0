@@ -13,21 +13,3 @@
 
 // cameraInput.addEventListener("change", showSelectedPhoto);
 // galleryInput.addEventListener("change", showSelectedPhoto);
-
-const menuOpen = document.querySelector("#menu__toggle__btn");
-const myMenu = document.querySelector("#menu__list");
-const menuOverlay = document.querySelector("#overlay_id");
-const menuClose = document.querySelector("#exit__button");
-
-menuOpen.addEventListener("click", () => {
-  myMenu.classList.add("menu_list_isActive");
-  menuOverlay.classList.add("overlay_isActive");
-});
-menuOverlay.addEventListener("click", () => {
-  myMenu.classList.remove("menu_list_isActive");
-  menuOverlay.classList.remove("overlay_isActive");
-});
-menuClose.addEventListener("click", () => {
-  myMenu.classList.remove("menu_list_isActive");
-  menuOverlay.classList.remove("overlay_isActive");
-});

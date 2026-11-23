@@ -49,8 +49,7 @@ a:active {
   --overlay-bg: rgba(15, 23, 42, 0.35); /* Smooth drawer backdrop dim */
 
   /* Shadows (Subtle, realistic elevation) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-main: 0 4px 12px rgba(0, 0, 0, 0.01);
 
   /* Spacing Scale (Multiples of 4px — kills random spacing) */
   --space-1: 4px;
@@ -128,7 +127,7 @@ html {
   position: sticky;
   top: 0;
   left: 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-main);
 
   .logo {
     width: 20rem;
@@ -158,34 +157,23 @@ html {
       border: 0;
       outline: none;
       background-color: transparent;
-
-      svg {
-        width: 36px;
-        height: 36px;
-      }
     }
   }
-}
 
-.sell_div {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .sell_btn {
-    width: 53px;
-    height: 53px;
-    display: inline-flex;
+  .search_div {
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-small);
-    border-radius: 999px;
-    color: var(--card-bg);
-    background-color: var(--color-accent);
-    border: 0;
-    box-shadow: var(--shadow-md);
+
+    .search_btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-tiny);
+      border-radius: 999px;
+      border: 0;
+      outline: none;
+      background-color: transparent;
+    }
   }
 }

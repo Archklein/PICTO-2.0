@@ -276,15 +276,15 @@ html {
       background-color: transparent;
       border-radius: var(--radius-sm);
       transition: all 0.35s var(--ease-apple);
-      font-size: 1.2rem;
+      font-size: var(--p2);
       font-weight: 500;
       border: 0;
       color: var(--text-dark);
 
       svg {
         margin-right: 0.8rem;
-        width: 18px;
-        height: 18x;
+        width: 20px;
+        height: 20x;
         margin-bottom: 1px;
       }
     }

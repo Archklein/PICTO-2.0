@@ -22,8 +22,12 @@ menuOpen.addEventListener("click", () => {
   menuList.classList.add("menu_list_isActive");
   overlayMenuExit.classList.add("overlay_isActive");
 });
-menuClose &&
-  overlayMenuExit.addEventListener("click", () => {
-    menuList.classList.remove("menu_list_isActive");
-    overlayMenuExit.classList.remove("overlay_isActive");
-  });
+menuClose.addEventListener("click", () => {
+  menuList.classList.remove("menu_list_isActive");
+  overlayMenuExit.classList.remove("overlay_isActive");
+});
+
+overlayMenuExit.addEventListener("click", () => {
+  menuList.classList.remove("menu_list_isActive");
+  overlayMenuExit.classList.remove("overlay_isActive");
+});

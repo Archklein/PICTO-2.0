@@ -51,20 +51,14 @@ a:active {
   /* Shadows (Subtle, realistic elevation) */
   --shadow-main: 0 4px 12px rgba(0, 0, 0, 0.01);
 
-  /* Spacing Scale (Multiples of 4px — kills random spacing) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-
   /* Border Radius */
   --radius-sm: 8px; /* Inputs & small buttons */
   --radius-md: 12px; /* Product cards */
   --radius-full: 9999px; /* Pills & circular buttons */
+  --navtop-height: 5.4rem;
 
   /* Motion */
-  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* My spacings */
   --spacing-tiny: 0.4rem;
@@ -118,7 +112,9 @@ html {
 }
 
 .navtop {
+  z-index: 999;
   width: 100%;
+  height: var(--navtop-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -130,11 +126,12 @@ html {
   box-shadow: var(--shadow-main);
 
   .logo {
-    width: 20rem;
+    width: 22rem;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: auto;
 
     img {
       width: 100%;
@@ -158,6 +155,12 @@ html {
       outline: none;
       background-color: transparent;
     }
+
+    .menu_btn:hover {
+      svg {
+        fill: var(--text-muted);
+      }
+    }
   }
 
   .search_div {
@@ -174,6 +177,142 @@ html {
       border: 0;
       outline: none;
       background-color: transparent;
+      transition: all 0.35s var(--ease-apple);
+    }
+
+    .search_btn:hover {
+      svg {
+        fill: var(--text-muted);
+      }
     }
   }
+}
+
+.menu_list {
+  background-color: var(--card-bg);
+  z-index: 1000;
+  width: min(28rem, 70vw);
+  border-top-right-radius: var(--spacing-medium);
+  border-bottom-right-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-main);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: all 0.65s var(--ease-apple);
+
+  .menu_exit_div {
+    width: 100%;
+    height: var(--navtop-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-small) var(--spacing-small) var(--spacing-small) 0;
+
+    .menu_logo {
+      width: auto;
+      height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      margin-right: auto;
+      margin-left: 1.2rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    .menu_exit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-small);
+
+      .menu_exit_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-tiny);
+        border-radius: 999px;
+        border: 0px solid var(--text-dark);
+        background-color: transparent;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  .menu_links {
+    margin-top: var(--spacing-small);
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: var(--spacing-small);
+
+    .menu_link {
+      width: 95%;
+      padding: var(--spacing-small);
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: transparent;
+      border-radius: var(--radius-sm);
+      transition: all 0.35s var(--ease-apple);
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: 0;
+      color: var(--text-dark);
+
+      svg {
+        margin-right: 0.8rem;
+        width: 18px;
+        height: 18x;
+        margin-bottom: 1px;
+      }
+    }
+  }
+}
+
+.menu_list_isActive {
+  pointer-events: auto;
+  transform: translateX(0%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.35);
+  opacity: 1;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.overlay_isActive {
+  opacity: 0.5;
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 999;
 }

@@ -26,25 +26,46 @@ a:active {
 
 :root {
   /* Typography */
-  --text-dark: #21242a; /* Deep Slate Ink – crisp, zero pure-black harshness */
-  --text-muted: #34383e; /* Balanced Cool Gray – readable secondary text */
-  --text-light: #ffffff; /* Pure White – text on accent buttons */
+  --text-dark: #18181b; /* Crisp near-black for titles & prices */
+  --text-body: #3f3f46; /* Comfortable dark gray for descriptions */
+  --text-muted: #64748b; /* True muted slate for captions & timestamps */
+  --text-light: #ffffff; /* Pure white for buttons & badges */
 
   /* Primary Accent: Forest Emerald */
-  --color-accent: #15803d; /* Rich, modern emerald – trustworthy & high contrast */
-  --color-accent-hover: #166534; /* Deeper pine green on hover/active */
+  --color-accent: #15803d; /* Main brand green */
+  --color-accent-hover: #166534; /* Darker hover/pressed state */
+  --accent-hover-lo: #15803d0a; /* 4% subtle row hover */
+  --accent-active-lo: #15803d14; /* 8% active nav/pill fill */
+  --accent-focus-lo: #15803d26; /* 15% visible keyboard focus ring */
 
-  /* Subtle Interactive Tints (4%, 8%, 12% opacity) */
-  --accent-hover-lo: #15803d0a; /* Subtle row/card hover */
-  --accent-active-lo: #15803d14; /* Active sidebar/nav pill */
-  --accent-focus-lo: #15803d1f; /* Keyboard focus ring & input glow */
+  /* Status Colors (Useful for marketplace badges later) */
+  --color-danger: #dc2626; /* Sold / delete / warning */
+  --color-warning: #d97706; /* Pending / meetup reminder */
 
   /* Surfaces & Borders */
-  --outline: #e2e8f0; /* Clean hairline border for cards & inputs */
-  --main-bg: #f8fafc; /* Ultra-clean cool alabaster canvas */
-  --card-bg: #ffffff; /* Crisp pure white surfaces */
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.01);
-  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --main-bg: #f8fafc; /* Soft alabaster page background */
+  --card-bg: #ffffff; /* Pure white cards, header & drawer */
+  --outline: #e2e8f0; /* Crisp 1px structural border */
+  --overlay-bg: rgba(15, 23, 42, 0.35); /* Smooth drawer backdrop dim */
+
+  /* Shadows (Subtle, realistic elevation) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  /* Spacing Scale (Multiples of 4px — kills random spacing) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+
+  /* Border Radius */
+  --radius-sm: 8px; /* Inputs & small buttons */
+  --radius-md: 12px; /* Product cards */
+  --radius-full: 9999px; /* Pills & circular buttons */
+
+  /* Motion */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* My spacings */
   --spacing-tiny: 0.4rem;
@@ -98,168 +119,73 @@ html {
 }
 
 .navtop {
-  z-index: 999;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-small);
   background-color: var(--card-bg);
-  box-shadow: var(--shadow-md);
   position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
+  box-shadow: var(--shadow-sm);
 
   .logo {
-    width: 8rem;
-    height: 100%;
+    width: 20rem;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 0 var(--spacing-tiny);
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      display: block;
     }
   }
 
-  .menu_toggle_div {
+  .menu_div {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    button {
+    .menu_btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: var(--spacing-small);
+      padding: var(--spacing-tiny);
       border-radius: 999px;
+      border: 0;
       outline: none;
       background-color: transparent;
-      border: 0;
-      transition: all 0.25s var(--ease-apple);
 
       svg {
-        color: var(--text-dark);
-      }
-    }
-
-    button:hover {
-      background-color: var(--accent-hover-lo);
-    }
-  }
-
-  .search_div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing-small);
-      border-radius: 999px;
-      outline: none;
-      background-color: transparent;
-      border: 0;
-      transition: all 0.25s var(--ease-apple);
-
-      svg {
-        color: var(--text-dark);
-        transition: all 0.25s var(--ease-apple);
-        transform: scale(100%);
-      }
-    }
-
-    button:hover {
-      background-color: var(--accent-hover-lo);
-
-      svg {
-        transform: scale(103%);
+        width: 36px;
+        height: 36px;
       }
     }
   }
 }
 
-.menu_list {
-  width: min(26.6rem, calc(100vw - 3.2rem));
+.sell_div {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--card-bg);
-  z-index: 1000;
-  box-shadow: var(--shadow-md);
-  transition: all 0.65s var(--ease-apple);
-  transform: translateX(-100%);
-  pointer-events: none;
 
-  .menu_list_divider {
-    width: 95%;
-    height: 0.2px;
-    background-color: var(--outline);
-  }
-
-  .last {
-    margin-bottom: auto;
-  }
-
-  .menu_link {
-    width: 95%;
-    padding: var(--spacing-medium) var(--spacing-small);
+  .sell_btn {
+    width: 53px;
+    height: 53px;
     display: inline-flex;
     align-items: center;
-    justify-content: flex-start;
-    font-size: var(--p2);
-    font-weight: 500;
-    color: var(--text-muted);
-    line-height: var(--leading-p);
-    letter-spacing: var(--tracking-p2);
+    justify-content: center;
+    padding: var(--spacing-small);
+    border-radius: 999px;
+    color: var(--card-bg);
+    background-color: var(--color-accent);
     border: 0;
-    outline: none;
-    background-color: transparent;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 1px;
-      margin-right: 0.8rem;
-    }
-
-    .lucide-chevron-right {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-      margin-left: auto;
-    }
+    box-shadow: var(--shadow-md);
   }
-}
-
-.menu_list_isActive {
-  transform: translateX(0%);
-  pointer-events: auto;
-}
-
-.overlay {
-  inset: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background-color: transparent;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.overlay_isActive {
-  background-color: rgba(0, 0, 0, 0.08);
-  pointer-events: auto;
-  visibility: visible;
 }

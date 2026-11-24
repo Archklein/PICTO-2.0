@@ -13,6 +13,7 @@
 
 // cameraInput.addEventListener("change", showSelectedPhoto);
 // galleryInput.addEventListener("change", showSelectedPhoto);
+
 const menuOpen = document.querySelector("#menu__btn");
 const menuList = document.querySelector("#menu__list");
 const menuClose = document.querySelector("#menu__exit");
@@ -30,4 +31,27 @@ menuClose.addEventListener("click", () => {
 overlayMenuExit.addEventListener("click", () => {
   menuList.classList.remove("menu_list_isActive");
   overlayMenuExit.classList.remove("overlay_isActive");
+});
+
+const searchOpen = document.querySelector("#search__btn");
+const searchbar = document.querySelector("#searchbar__container");
+const searchExit = document.querySelector(".search_exit");
+const searchInput = document.querySelector("#searchInput");
+const searchOverlay = document.querySelector("#search__overlay");
+
+searchOpen.addEventListener("click", () => {
+  searchbar.classList.add("searchbar_container_isActive");
+  searchOverlay.classList.add("search_overlay_isActive");
+  searchInput.focus();
+});
+searchExit.addEventListener("click", () => {
+  searchbar.classList.remove("searchbar_container_isActive");
+  searchOverlay.classList.remove("search_overlay_isActive");
+  searchInput.value = "";
+});
+
+searchOverlay.addEventListener("click", () => {
+  searchbar.classList.remove("searchbar_container_isActive");
+  searchOverlay.classList.remove("search_overlay_isActive");
+  searchInput.value = "";
 });

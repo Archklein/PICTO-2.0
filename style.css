@@ -225,7 +225,7 @@ html {
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      padding: var(--spacing-small);
+      padding: 0.8rem;
       color: var(--text-body);
       font-size: var(--p);
       font-weight: 550;
@@ -245,9 +245,14 @@ html {
     .menu_link:hover {
       background-color: var(--accent-hover-lo);
     }
+
     .menu_link:active {
       background-color: var(--accent-active-lo);
     }
+    /* 
+    .menu_link:focus {
+      background-color: var(--accent-fucos-lo);
+    } */
 
     .menu_home {
       background-color: #2eb9610a;

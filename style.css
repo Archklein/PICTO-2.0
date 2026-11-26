@@ -59,6 +59,7 @@ a:active {
 
   /* Motion */
   --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
 
   /* My spacings */
   --spacing-tiny: 0.4rem;
@@ -92,7 +93,7 @@ body {
   font-size: 1.6rem;
   background-color: var(--main-bg);
   animation: pageSlideIn 0.2s var(--ease-apple);
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
 }
 
 @keyframes pageSlideIn {
@@ -111,26 +112,27 @@ html {
   font-size: 62.5%;
 }
 
-.main_wrapper {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .navbar {
+  z-index: 999;
   width: 100%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-medium);
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)
+    var(--spacing-small);
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
 
   .logo {
     display: flex;
     align-items: center;
     justify-content: center;
     width: clamp(10rem, 10vh, 11rem);
+    margin: 0 auto 0 var(--spacing-tiny);
     height: auto;
     img {
       width: 100%;
@@ -143,6 +145,67 @@ html {
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    border: 0;
+    border: none;
+    color: var(--text-dark);
+    transition: all 0.35s var(--ease-apple);
+    padding: var(--spacing-small);
   }
+
+  .menu_toggle:hover {
+    color: var(--text-body);
+    background-color: var(--accent-hover-lo);
+    border-radius: 999px;
+  }
+
+  .quickAccess_toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: var(--text-dark);
+    transition: all 0.35s var(--ease-apple);
+    padding: var(--spacing-small) 0 var(--spacing-small) var(--spacing-small);
+  }
+
+  .quickAccess_toggle:hover {
+    color: var(--text-body);
+  }
+
+  .search_toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: var(--text-dark);
+    transition: all 0.35s var(--ease-apple);
+    padding: var(--spacing-small);
+  }
+
+  .search_toggle:hover {
+    color: var(--text-body);
+  }
+}
+
+.menu_section {
+  z-index: 1000;
+  width: min(100%, 28rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  background-color: red;
+  pointer-events: none;
+  transition: all 0.65s var(--ease-apple);
+  transform: translateX(-100%);
+}
+
+.menu_section_isActive {
+  transform: translateX(0%);
+  pointer-events: auto;
 }

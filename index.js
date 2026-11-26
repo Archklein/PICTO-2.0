@@ -13,3 +13,9 @@
 
 // cameraInput.addEventListener("change", showSelectedPhoto);
 // galleryInput.addEventListener("change", showSelectedPhoto);
+const menuOpen = document.querySelector("#menu__toggle");
+const menuList = document.querySelector("#menu__section");
+
+menuOpen.addEventListener("click", () => {
+  menuList.classList.add("menu_section_isActive");
+});

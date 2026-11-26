@@ -14,8 +14,22 @@
 // cameraInput.addEventListener("change", showSelectedPhoto);
 // galleryInput.addEventListener("change", showSelectedPhoto);
 const menuOpen = document.querySelector("#menu__toggle");
+const menuClose = document.querySelector("#menu__exit");
 const menuList = document.querySelector("#menu__section");
+const menuOverlay = document.querySelector("#menu__overlay");
 
 menuOpen.addEventListener("click", () => {
   menuList.classList.add("menu_section_isActive");
+  menuOverlay.classList.add("menu_overlay_isActive");
+  menuClose.classList.add("menu_exit_auto");
+});
+
+menuClose.addEventListener("click", () => {
+  menuList.classList.remove("menu_section_isActive");
+  menuOverlay.classList.remove("menu_overlay_isActive");
+});
+
+menuOverlay.addEventListener("click", () => {
+  menuList.classList.remove("menu_section_isActive");
+  menuOverlay.classList.remove("menu_overlay_isActive");
 });

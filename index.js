@@ -21,15 +21,26 @@ const menuOverlay = document.querySelector("#menu__overlay");
 menuOpen.addEventListener("click", () => {
   menuList.classList.add("menu_section_isActive");
   menuOverlay.classList.add("menu_overlay_isActive");
-  menuClose.classList.add("menu_exit_auto");
+});
+
+menuList.addEventListener("transitionend", (event) => {
+  if (
+    event.target === menuList &&
+    event.propertyName === "transform" &&
+    menuList.classList.contains("menu_section_isActive")
+  ) {
+    menuClose.classList.add("menu_exit_auto");
+  }
 });
 
 menuClose.addEventListener("click", () => {
   menuList.classList.remove("menu_section_isActive");
   menuOverlay.classList.remove("menu_overlay_isActive");
+  menuClose.classList.remove("menu_exit_auto");
 });
 
 menuOverlay.addEventListener("click", () => {
   menuList.classList.remove("menu_section_isActive");
   menuOverlay.classList.remove("menu_overlay_isActive");
+  menuClose.classList.remove("menu_exit_auto");
 });

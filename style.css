@@ -214,7 +214,7 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: var(--spacing-small);
     padding: var(--spacing-tiny);
     border-radius: var(--radius-md);
     margin-bottom: auto;
@@ -229,13 +229,15 @@ html {
       padding: var(--spacing-small) var(--spacing-medium) var(--spacing-small)
         var(--spacing-small);
       color: var(--text-dark);
-      font-size: var(--p);
-      font-weight: 600;
+      font-size: var(--p2);
+      font-weight: 500;
       background-color: transparent;
       border: none;
 
       svg {
-        fill: var(--text-dark);
+        width: 1.35em;
+        height: 1.35em;
+        color: var(--text-dark);
         display: inline-block;
         margin-right: 0.8rem;
       }

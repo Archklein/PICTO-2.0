@@ -214,23 +214,21 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: var(--spacing-tiny);
-    padding: var(--spacing-tiny);
+    gap: 0;
     border-radius: var(--radius-md);
     margin-bottom: auto;
 
     .menu_link {
       width: 100%;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-full);
       border: none;
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)
-        var(--spacing-small);
+      padding: var(--spacing-small);
       color: var(--text-body);
       font-size: var(--p);
-      font-weight: 500;
+      font-weight: 550;
       background-color: transparent;
       border: none;
       transition: all 0.35s var(--ease-apple);
@@ -239,7 +237,8 @@ html {
         width: 1.35em;
         height: 1.35em;
         display: inline-block;
-        margin-right: 0.8rem;
+        margin: 0 0.8rem 0 0;
+        stroke-width: 2px;
       }
     }
 
@@ -333,4 +332,61 @@ html {
   .menu_section {
     width: min(100%, 27rem);
   }
+}
+
+.quickAccess_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(130px, 92vw, 150px);
+  flex-direction: column;
+  padding: var(--spacing-small);
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-main);
+  gap: 0.2rem;
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  visibility: hidden;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: all 0.35s var(--ease-spring);
+
+  .quickAccess_link {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: none;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: var(--p);
+    color: var(--text-body);
+    font-weight: 550;
+    background-color: transparent;
+
+    svg {
+      margin-right: 0.8rem;
+    }
+  }
+}
+
+.quickAccess_section::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--card-bg);
+  transform: rotate(45deg);
+  top: -5px;
+  right: 14px;
+  width: 10px;
+  height: 10;
+}
+
+.quickAccess_section_isActive {
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
 }

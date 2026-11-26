@@ -55,7 +55,7 @@
         </svg>
       </button>
 
-      <button type="button" class="quickAccess_toggle">
+      <button id="quickAccess__toggle" type="button" class="quickAccess_toggle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -73,6 +73,60 @@
           <circle cx="12" cy="19" r="1" />
         </svg>
       </button>
+
+      <section id="quickAccess__section" class="quickAccess_section">
+        <button type="button" class="quickAccess_link" id="quickAccess__link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="23 4 23 10 17 10" />
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+          </svg>
+          Refresh
+        </button>
+        <button type="button" class="quickAccess_link" id="quickAccess__link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" y1="2" x2="12" y2="15" />
+          </svg>
+          Share
+        </button>
+        <button type="button" class="quickAccess_link" id="quickAccess__link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+            />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+          Report
+        </button>
+      </section>
     </nav>
     <div class="menu_overlay" id="menu__overlay"></div>
     <section id="menu__section" class="menu_section">
@@ -109,7 +163,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2.25"
             stroke-linecap="round"
             stroke-linejoin="round"
             inside-stroke="currentColor"
@@ -130,7 +184,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2.25"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-package preview-icon"
@@ -152,7 +206,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2.25"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-map-pinned preview-icon"
@@ -175,7 +229,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2.25"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-settings preview-icon"
@@ -195,29 +249,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-message-square-text preview-icon"
-          >
-            <path
-              d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
-            />
-            <path d="M7 11h10" />
-            <path d="M7 15h6" />
-            <path d="M7 7h8" />
-          </svg>
-          Send Feedback
-        </button>
-        <button type="button" class="menu_link" id="menu__link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2.25"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-info preview-icon"

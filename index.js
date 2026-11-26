@@ -44,3 +44,10 @@ menuOverlay.addEventListener("click", () => {
   menuOverlay.classList.remove("menu_overlay_isActive");
   menuClose.classList.remove("menu_exit_auto");
 });
+
+const quickAccessOpen = document.querySelector("#quickAccess__toggle");
+const quickAccessSection = document.querySelector("#quickAccess__section");
+
+quickAccessOpen.addEventListener("click", () => {
+  quickAccessSection.classList.toggle("quickAccess_section_isActive");
+});
